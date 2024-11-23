@@ -1,0 +1,27 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /api-test-scotiabank
+
+spring:
+  application:
+    name: backend-scotiabank-test
+
+  datasource:
+    url: jdbc:h2:mem:testDb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: true
+
+springdoc:
+  api-docs:
+    path: /swagger-ui.html
