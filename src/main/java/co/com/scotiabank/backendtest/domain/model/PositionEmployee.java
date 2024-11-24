@@ -19,6 +19,9 @@ public class PositionEmployee {
 
     private LocalDate positionDate;
 
+    public PositionEmployee() {
+    }
+
     public PositionEmployee(Long id, Long employeeId, String positionTitle, String email, Double salary, LocalDate positionDate) {
         this.id = id;
         this.employeeId = employeeId;
