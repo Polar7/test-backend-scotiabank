@@ -38,9 +38,6 @@ public class EmployeeEntity {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "date_arrival")
-    private LocalDate arrivalDate;
-
     @Column(name = "location_city")
     private String locationCity;
 

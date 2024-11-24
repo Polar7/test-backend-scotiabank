@@ -15,8 +15,6 @@ public class Employee {
 
     private String lastName;
 
-    private LocalDate arrivalDate;
-
     private String locationCity;
 
     private String address;
@@ -32,12 +30,11 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Long id, String firstName, String middleName, String lastName, LocalDate arrivalDate, String locationCity, String address, LocalDate birthDate, LocalDate hireDate, Double telephone, String status) {
+    public Employee(Long id, String firstName, String middleName, String lastName, String locationCity, String address, LocalDate birthDate, LocalDate hireDate, Double telephone, String status) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.arrivalDate = arrivalDate;
         this.locationCity = locationCity;
         this.address = address;
         this.birthDate = birthDate;
@@ -76,14 +73,6 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public LocalDate getArrivalDate() {
-        return arrivalDate;
-    }
-
-    public void setArrivalDate(LocalDate arrivalDate) {
-        this.arrivalDate = arrivalDate;
     }
 
     public String getLocationCity() {

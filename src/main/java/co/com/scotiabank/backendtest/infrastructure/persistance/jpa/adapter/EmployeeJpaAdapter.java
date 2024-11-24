@@ -28,4 +28,16 @@ public class EmployeeJpaAdapter implements IEmployeePersistencePort {
     public List<Employee> getAllEmployees() {
         return employeeEntityMapper.toEmployeeList(employeeCrudRepository.findAll());
     }
+
+    /**
+     * Save a new employee
+     * @param employee New employee to save
+     * @return Employee saved
+     */
+    @Override
+    public Employee saveEmployee(Employee employee) {
+        return employeeEntityMapper.toEmployee(
+                employeeCrudRepository.save(employeeEntityMapper.toEntity(employee))
+        );
+    }
 }

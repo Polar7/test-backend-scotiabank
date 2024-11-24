@@ -24,4 +24,14 @@ public class EmployeeUsecaseAdapter implements IEmployeeUsecasePort {
     public List<Employee> getAllEmployees() {
         return employeePersistencePort.getAllEmployees();
     }
+
+    /**
+     * Save a new employee
+     * @param employee New employee to save
+     * @return Employee saved
+     */
+    @Override
+    public Employee saveEmployee(Employee employee) {
+        return employeePersistencePort.saveEmployee(employee);
+    }
 }

@@ -14,4 +14,12 @@ public interface IEmployeeUsecasePort {
      * @return Employee list found
      */
     List<Employee> getAllEmployees();
+
+    /**
+     * Save a new employee
+     * @param employee New employee to save
+     * @return Employee saved
+     */
+    Employee saveEmployee(Employee employee);
+
 }
