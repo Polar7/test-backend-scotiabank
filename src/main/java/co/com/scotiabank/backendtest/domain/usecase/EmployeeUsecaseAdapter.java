@@ -4,6 +4,7 @@ import co.com.scotiabank.backendtest.domain.model.Employee;
 import co.com.scotiabank.backendtest.domain.persistance.IEmployeePersistencePort;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Adapter for EmployeeUseCase
@@ -23,6 +24,16 @@ public class EmployeeUsecaseAdapter implements IEmployeeUsecasePort {
     @Override
     public List<Employee> getAllEmployees() {
         return employeePersistencePort.getAllEmployees();
+    }
+
+    /**
+     * Find an employee by ID
+     * @param id Employee id to search for
+     * @return Optional with Employee found
+     */
+    @Override
+    public Optional<Employee> getEmployeeById(Long id) {
+        return employeePersistencePort.getEmployeeById(id);
     }
 
     /**

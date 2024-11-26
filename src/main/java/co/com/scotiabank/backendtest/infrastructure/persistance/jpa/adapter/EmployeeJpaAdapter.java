@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Adapter for Employee Persistance
@@ -27,6 +28,17 @@ public class EmployeeJpaAdapter implements IEmployeePersistencePort {
     @Override
     public List<Employee> getAllEmployees() {
         return employeeEntityMapper.toEmployeeList(employeeCrudRepository.findAll());
+    }
+
+    /**
+     * Find an employee by ID
+     * @param id Employee id to search for
+     * @return Optional with Employee found
+     */
+    @Override
+    public Optional<Employee> getEmployeeById(Long id) {
+        return employeeCrudRepository.findById(id)
+                .map(employeeEntityMapper::toEmployee);
     }
 
     /**

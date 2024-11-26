@@ -26,6 +26,16 @@ public class ControllerExceptionHandler {
     }
 
     /**
+     * Catches exceptions based on resources not found
+     * @param e Exception thrown
+     * @return ProblemDetail with NOT_FOUND status code and its message
+     */
+    @ExceptionHandler({EmployeeNotFoundException.class, PositionEmployeeNotFoundException.class})
+    public ProblemDetail noDataFoundException(RuntimeException e) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, e.getMessage());
+    }
+
+    /**
      * Catches exceptions thrown by Validation when the JSON received in the controller does not meet the correct conditions
      * @param e Exception thrown
      * @return ProblemDetail with the list of the fields where there is error

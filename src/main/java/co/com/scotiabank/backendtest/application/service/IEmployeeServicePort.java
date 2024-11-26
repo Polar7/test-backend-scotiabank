@@ -1,5 +1,6 @@
 package co.com.scotiabank.backendtest.application.service;
 
+import co.com.scotiabank.backendtest.application.dto.EmployeeDetailsDtoResponse;
 import co.com.scotiabank.backendtest.application.dto.EmployeeDtoResponse;
 import co.com.scotiabank.backendtest.application.dto.GenericDtoResponse;
 import co.com.scotiabank.backendtest.application.dto.SaveEmployeeDtoRequest;
@@ -16,6 +17,13 @@ public interface IEmployeeServicePort {
      * @return Employee list found
      */
     List<EmployeeDtoResponse> getAllEmployees();
+
+    /**
+     * Get the details of an employee
+     * @param employeeId Employee id to search for
+     * @return Details found
+     */
+    EmployeeDetailsDtoResponse getEmployeeDetails(Long employeeId);
 
     /**
      * Save a new employee
