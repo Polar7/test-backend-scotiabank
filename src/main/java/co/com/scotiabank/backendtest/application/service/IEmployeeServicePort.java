@@ -1,9 +1,10 @@
 package co.com.scotiabank.backendtest.application.service;
 
-import co.com.scotiabank.backendtest.application.dto.EmployeeDetailsDtoResponse;
 import co.com.scotiabank.backendtest.application.dto.EmployeeDtoResponse;
 import co.com.scotiabank.backendtest.application.dto.GenericDtoResponse;
+import co.com.scotiabank.backendtest.application.dto.GetEmployeeDetailsDtoResponse;
 import co.com.scotiabank.backendtest.application.dto.SaveEmployeeDtoRequest;
+import co.com.scotiabank.backendtest.application.dto.UpdateEmployeeDtoRequest;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public interface IEmployeeServicePort {
      * @param employeeId Employee id to search for
      * @return Details found
      */
-    EmployeeDetailsDtoResponse getEmployeeDetails(Long employeeId);
+    GetEmployeeDetailsDtoResponse getEmployeeDetails(Long employeeId);
 
     /**
      * Save a new employee
@@ -31,4 +32,11 @@ public interface IEmployeeServicePort {
      * @return Dto with confirmation of operation
      */
     GenericDtoResponse saveNewEmployee(SaveEmployeeDtoRequest newEmployee);
+
+    /**
+     * Update the details of an employee and his position
+     * @param updateEmployee Dto of employee to update
+     * @return Dto with confirmation of operation
+     */
+    GenericDtoResponse updateEmployee(UpdateEmployeeDtoRequest updateEmployee);
 }

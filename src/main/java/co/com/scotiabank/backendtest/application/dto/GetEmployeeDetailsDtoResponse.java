@@ -9,9 +9,9 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class EmployeeDetailsDtoResponse {
+public class GetEmployeeDetailsDtoResponse {
 
     private Employee employee;
 
-    private PositionEmployeeDetailsDtoResponse positionEmployee;
+    private GetPositionEmployeeDetailsDtoResponse positionEmployee;
 }

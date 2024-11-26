@@ -6,11 +6,11 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 /**
- * Dto for a position of {@link EmployeeDetailsDtoResponse}
+ * Dto for a position of {@link GetEmployeeDetailsDtoResponse}
  */
 @Getter
 @Setter
-public class PositionEmployeeDetailsDtoResponse {
+public class GetPositionEmployeeDetailsDtoResponse {
 
     private String positionTitle;
 

@@ -1,26 +1,18 @@
 package co.com.scotiabank.backendtest.application.dto;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
 /**
- * Dto for endpoint to save a new PositionEmployee
+ * Dto for a position of {@link UpdateEmployeeDtoRequest}
  */
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class SavePositionEmployeeDtoRequest {
-
-    @NotNull(message = "EmployeeId cannot be null")
-    private Long employeeId;
+public class UpdatePositionEmployeeDetailsDtoRequest {
 
     @NotEmpty(message = "PositionTitle cannot be empty")
     private String positionTitle;

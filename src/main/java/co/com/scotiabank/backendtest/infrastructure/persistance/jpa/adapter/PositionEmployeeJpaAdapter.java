@@ -21,18 +21,32 @@ public class PositionEmployeeJpaAdapter implements IPositionEmployeePersistenceP
 
     private final IPositionEmployeeEntityMapper positionEmployeeEntityMapper;
 
+    /**
+     * Get all the positions of the employees
+     * @return Positions list found
+     */
     @Override
     public List<PositionEmployee> getAllPositionEmployee() {
         return positionEmployeeEntityMapper.toPositionList(positionEmployeeCrudRepository.findAll());
     }
 
+    /**
+     * Get the actual position employee (with status Active)
+     * @param employeeId Employee id to search for
+     * @return Optional with position found
+     */
     @Override
-    public Optional<PositionEmployee> getPositionEmployeeByIdEmployee(Long id) {
+    public Optional<PositionEmployee> getPositionEmployeeActualByIdEmployee(Long employeeId) {
         return positionEmployeeCrudRepository
-                .findByEmployeeId(id)
+                .findByEmployeeIdAndStatus(employeeId, "Active")
                 .map(positionEmployeeEntityMapper::toPosition);
     }
 
+    /**
+     * Save a new position for an employee
+     * @param positionEmployee New position to save
+     * @return Position saved
+     */
     @Override
     public PositionEmployee savePositionEmployee(PositionEmployee positionEmployee) {
         return positionEmployeeEntityMapper.toPosition(

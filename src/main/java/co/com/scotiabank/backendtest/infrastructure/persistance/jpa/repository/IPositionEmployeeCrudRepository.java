@@ -10,6 +10,11 @@ import java.util.Optional;
  */
 public interface IPositionEmployeeCrudRepository extends JpaRepository<PositionEmployeeEntity, Long> {
 
-    Optional<PositionEmployeeEntity> findByEmployeeId(Long employeeId);
+    /**
+     * Get the actual position employee (with status Active)
+     * @param employeeId Employee id to search for
+     * @return Optional with position found
+     */
+    Optional<PositionEmployeeEntity> findByEmployeeIdAndStatus(Long employeeId, String status);
 
 }
