@@ -9,6 +9,9 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
+/**
+ * Dto for endpoint to save a new employee
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -38,7 +41,4 @@ public class SaveEmployeeDtoRequest {
 
     @NotNull(message = "Telephone cannot be null")
     private Double telephone;
-
-    @NotEmpty(message = "Status cannot be empty")
-    private String status;
 }

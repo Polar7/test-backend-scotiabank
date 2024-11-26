@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Represents an Employee entity
@@ -54,7 +56,7 @@ public class EmployeeEntity {
 
     private String status;
 
-    @OneToOne(mappedBy = "employee")
-    private PositionEmployeeEntity positionEmployee;
+    @OneToMany(mappedBy = "employee")
+    private List<PositionEmployeeEntity> positionEmployee;
 
 }

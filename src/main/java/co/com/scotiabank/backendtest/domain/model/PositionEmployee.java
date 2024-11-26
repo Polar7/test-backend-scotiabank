@@ -19,16 +19,19 @@ public class PositionEmployee {
 
     private LocalDate positionDate;
 
+    private String status;
+
     public PositionEmployee() {
     }
 
-    public PositionEmployee(Long id, Long employeeId, String positionTitle, String email, Double salary, LocalDate positionDate) {
+    public PositionEmployee(Long id, Long employeeId, String positionTitle, String email, Double salary, LocalDate positionDate, String status) {
         this.id = id;
         this.employeeId = employeeId;
         this.positionTitle = positionTitle;
         this.email = email;
         this.salary = salary;
         this.positionDate = positionDate;
+        this.status = status;
     }
 
     public Long getId() {
@@ -77,5 +80,13 @@ public class PositionEmployee {
 
     public void setPositionDate(LocalDate positionDate) {
         this.positionDate = positionDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

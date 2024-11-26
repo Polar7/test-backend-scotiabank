@@ -3,8 +3,9 @@ package co.com.scotiabank.backendtest.application.service;
 import co.com.scotiabank.backendtest.application.dto.EmployeeDtoResponse;
 import co.com.scotiabank.backendtest.application.dto.GenericDtoResponse;
 import co.com.scotiabank.backendtest.application.dto.SaveEmployeeDtoRequest;
-import co.com.scotiabank.backendtest.application.mapper.IEmployeeResponseMapper;
+import co.com.scotiabank.backendtest.application.mapper.IEmployeeDtoMapper;
 import co.com.scotiabank.backendtest.domain.usecase.IEmployeeUsecasePort;
+import co.com.scotiabank.backendtest.domain.usecase.IPositionEmployeeUsecasePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,9 +20,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeServiceAdapter implements IEmployeeServicePort {
 
-    private final IEmployeeResponseMapper employeeResponseMapper;
+    private final IEmployeeDtoMapper employeeDtoMapper;
 
     private final IEmployeeUsecasePort employeeUsecase;
+
+    private final IPositionEmployeeUsecasePort positionEmployeeUsecase;
 
     /**
      * Get all the employees
@@ -29,7 +32,7 @@ public class EmployeeServiceAdapter implements IEmployeeServicePort {
      */
     @Override
     public List<EmployeeDtoResponse> getAllEmployees() {
-        return employeeResponseMapper.toEmployeeDtoList(employeeUsecase.getAllEmployees(), null);
+        return employeeDtoMapper.toEmployeeDtoList(employeeUsecase.getAllEmployees(), positionEmployeeUsecase.getAllPositionEmployee());
     }
 
     /**
@@ -39,7 +42,7 @@ public class EmployeeServiceAdapter implements IEmployeeServicePort {
      */
     @Override
     public GenericDtoResponse saveNewEmployee(SaveEmployeeDtoRequest newEmployee) {
-        employeeUsecase.saveEmployee(employeeResponseMapper.toEmployeeFromSaveDtoRequest(newEmployee));
+        employeeUsecase.saveEmployee(employeeDtoMapper.toEmployeeFromSaveDtoRequest(newEmployee));
         return GenericDtoResponse.builder().code(0).message("Employee saved succesfully").build();
     }
 }

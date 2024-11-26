@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Controller for Employee
  */
-@Tag(name = "EmployeeController", description = "Controlador para el servicio 'Empleado'")
+@Tag(name = "EmployeeController", description = "Controller for the rest service 'Employee'")
 @RestController
 @RequestMapping("employee")
 @RequiredArgsConstructor
